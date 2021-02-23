@@ -50,8 +50,9 @@ private:
 
     // Loop through each pixel in the image and check if its equal to the first
     // one
-    for (uint32_t i = 0; i < img.height * img.step; i++) {
-      if (img.data[i] == white_pixel) {
+    for (uint32_t i = 0; i < img.height * img.step; i += 3) {
+      if ((img.data[i] == white_pixel) && (img.data[i + 1] == white_pixel) &&
+          (img.data[i + 2] == white_pixel)) {
         uint32_t col = i % img.step;
 
         if (col < img.step * 0.25) {
