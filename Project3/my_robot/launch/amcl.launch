@@ -21,9 +21,9 @@
     <!-- Translational movement required before performing a filter update. Default: 0.2-->
     <param name="update_min_d" value="0.05"/>
     <!-- Rotational movement required before performing a filter update.Default: pi/6 -->
-    <param name="update_min_a" value="0.26"/>
-    <param name="recovery_alpha_slow" value="0.01"/>
-    <param name="recovery_alpha_fast" value="0.2"/>
+    <param name="update_min_a" value="0.13"/>
+    <param name="recovery_alpha_slow" value="0.001"/>
+    <param name="recovery_alpha_fast" value="0.1"/>
     <param name="selective_resampling" value="true"/>
     <param name="initial_pose_x" value="10"/>
     <param name="initial_pose_y" value="20"/>
@@ -45,11 +45,10 @@
     <param name="odom_model_type" value="diff-corrected"/>
 
     <!-- These parameters define how much noise is expected from the robot's movements/motions as it navigates inside the map. -->
-    <param name="odom_alpha1" value="0.2"/>
-    <param name="odom_alpha2" value="0.2"/>
-    <param name="odom_alpha3" value="0.2"/>
+    <param name="odom_alpha1" value="0.05"/>
+    <param name="odom_alpha2" value="0.05"/>
+    <param name="odom_alpha3" value="0.05"/>
     <param name="odom_alpha4" value="0.2"/>
-    <param name="odom_alpha5" value="0.2"/>
   </node>
 
   <!-- Move Base -->

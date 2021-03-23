@@ -64,4 +64,4 @@ First compile the project using `catkin_ws` and `source devel/setup.bash`, then 
 
 The robot can improve its initial estimate to find its way on the map.
 
-![amcl](my_robot/images/amcl1.gif "Result")
+![amcl](my_robot/images/amcl2.gif "Result")
