@@ -7,7 +7,7 @@ trap ctrl_c INT
 kill_gazebo
 
 # Deploy turtlebot in my environment (turtlebot_simulator)
-exec_roslauch turtlebot_gazebo turtlebot_world.launch world_file:=$PACKAGE_DIR/worlds/myworld.world &
+exec_roslauch turtlebot_gazebo turtlebot_world.launch world_file:=$(rospack find pick_objects)/worlds/myworld.world &
 
 sleep 5
 

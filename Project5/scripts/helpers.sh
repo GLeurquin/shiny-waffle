@@ -6,8 +6,15 @@ set -euo pipefail
 TERMINAL="xterm -fa 'Monospace' -fs 22"
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
-export CATKIN_WS_DIR=$DIR/../..
-export PACKAGE_DIR=$DIR/..
+
+# This assumes the devel folder containing catkin's
+# setup.bash is two folder up from this script.
+# If this is different in your setup,
+# Update the line below
+export CATKIN_SOURCE_BASH=$DIR/../../devel/setup.bash
+
+# The ros source bash
+export ROS_SOURCE_BASH=/opt/ros/kinetic/setup.bash
 
 wait_for_any_key() {
   read -n 1 -s -r -p 'Press any key to continue'
@@ -23,13 +30,19 @@ export -f ctrl_c
 kill_gazebo() {
   while [ ! -z "$(pgrep -f gazebo)" ]; do
     echo "Killing previous gazebo processes..."
-    pgrep -f gazebo | xargs kill
+    pkill -f gazebo
     sleep 3
   done
 
   while [ ! -z "$(pgrep -f ros)" ]; do
     echo "Killing previous ros processes..."
-    pgrep -f ros | xargs kill
+    pkill -f ros
+    sleep 3
+  done
+
+  while [ ! -z "$(pgrep -f rviz)" ]; do
+    echo "Killing previous rviz processes..."
+    pkill -f rviz
     sleep 3
   done
 }
@@ -38,14 +51,14 @@ setup_env() {
   set -euo pipefail
 
   echo "Sourcing ros"
-  source /opt/ros/kinetic/setup.bash
+  source $ROS_SOURCE_BASH
 
   # Set up ROS ip
   export ROS_IP=`echo $(hostname -I)`
 
   # Source the catkin setup.bash
-  echo "Sourcing $CATKIN_WS_DIR/devel/setup.bash"
-  source $CATKIN_WS_DIR/devel/setup.bash
+  echo "Sourcing $CATKIN_SOURCE_BASH"
+  source $CATKIN_SOURCE_BASH
 
   trap ctrl_c INT
 }

@@ -13,6 +13,7 @@ Install the following packages. A convenience script `scripts/setup.sh` will do 
 * [turtlebot_rviz_launchers](http://wiki.ros.org/turtlebot_rviz_launchers): With the `view_navigation.launch` file, you can load a preconfigured rviz workspace. You’ll save a lot of time by launching this file, because it will automatically load the robot model, trajectories, and map for you.
 * [turtlebot_gazebo](http://wiki.ros.org/turtlebot_gazebo): With the `turtlebot_world.launch` you can deploy a turtlebot in a gazebo environment by linking the world file to it.
 
+* Change the `CATKIN_SOURCE_BASH` variable in `scripts/helpers.sh` if your catkin devel folder is not one folder up from the scripts folder.
 
 # Node description
 
