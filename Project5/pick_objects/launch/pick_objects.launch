@@ -1,0 +1,12 @@
+<launch>
+  <node name="pick_objects" pkg="pick_objects" type="pick_objects" output="screen">
+    <param name="pickup_x" value="-7.0" type="double"/>
+    <param name="pickup_y" value="-2.0" type="double"/>
+
+    <param name="dropoff_x" value="4.0" type="double"/>
+    <param name="dropoff_y" value="-3.0" type="double"/>
+
+    <param name="use_markers" value="true" type="bool"/>
+  </node>
+
+</launch>

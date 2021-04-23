@@ -5,3 +5,5 @@ This repository contains projects for the robotics software engineer nanodegree 
 * Project 1 is just setting up a gazebo world
 * Project 2 is setting up a robot in that world that can follow a ball using the camera sensor. The ball is manually moved by the mouse to control the robot.
 * Project 3 uses adaptative monte carlo localization (AMCL) to locate the robot inside an environment.
+* Project 4 uses rtab map to localize and map its environment at the same time.
+* Project 5 uses the turtlebot with SLAM to pickup and dropoff a virtual box in its environment.

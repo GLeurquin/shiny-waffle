@@ -1,0 +1,6 @@
+geometry_msgs/Point position
+uint32 id
+float64 scale
+uint32 action
+---
+string msg_feedback
